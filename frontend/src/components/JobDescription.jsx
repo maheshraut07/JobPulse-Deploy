@@ -20,7 +20,7 @@ const JobDescription = () => {
   const applyJobHandler = async () => {
     try {
       axios.defaults.withCredentials = true;
-      const res = await axios.get(`https://jobpulse-deploy.onrender.com//api/v1/application/apply/${params.id}`);
+      const res = await axios.get(`https://jobpulse-deploy.onrender.com/api/v1/application/apply/${params.id}`);
       if (res.data.success) {
         setIsApplied(true); // Update the local state
         const updatedJob = { ...singleJobById, applications: [...singleJobById.applications, { applicant: authUser._id }] };

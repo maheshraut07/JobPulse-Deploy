@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:"https://jobpulse-deploy.onrender.com/",
+    origin:"https://jobpulse-deploy.onrender.com",
     credentials:true
 }
 app.use(cors(corsOptions));

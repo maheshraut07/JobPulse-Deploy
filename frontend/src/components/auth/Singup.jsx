@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
 
-const Singup = () => {
+const Signup = () => {
   const [input, setInput] = useState({
     fullname: "",
     email: "",
@@ -61,18 +61,20 @@ const Singup = () => {
       dispatch(setLoading(false));
     }
   }
+  
   useEffect(() => {
     if (authUser?.role === 'recruiter') {
       navigate("/admin/companies");
     } else if (authUser?.role === 'student') {
       navigate("/");
     }
-  }, [])
+  }, [authUser, navigate])
+
   return (
     <>
       <Navbar />
-      <div className='flex items-center justify-center max-w-7xl mx-auto'>
-        <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10'>
+      <div className='flex items-center justify-center max-w-7xl mx-auto px-4 sm:px-2'>
+        <form onSubmit={submitHandler} className='w-full md:w-1/2 border border-gray-200 rounded-md p-4 my-10'>
           <h1 className='font-bold text-xl mb-4'>Sign Up</h1>
           <div className='my-2'>
             <Label>Full Name</Label>
@@ -91,7 +93,7 @@ const Singup = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder="xxx@gmail.com"
             />
           </div>
           <div className='my-2'>
@@ -114,8 +116,10 @@ const Singup = () => {
               placeholder="password"
             />
           </div>
-          <div className='flex items-center justify-between'>
-            <RadioGroup className="flex items-center gap-4 my-5">
+
+          {/* Role and File input sections */}
+          <div className='flex flex-wrap justify-between gap-4 my-4'>
+            <RadioGroup className="flex items-center gap-4">
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -139,7 +143,7 @@ const Singup = () => {
                 <Label htmlFor="r2">Recruiter</Label>
               </div>
             </RadioGroup>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 w-full sm:w-auto'>
               <Label>Profile</Label>
               <Input
                 accept="image/*"
@@ -149,6 +153,7 @@ const Singup = () => {
               />
             </div>
           </div>
+
           {
             loading ? (
               <Button className='w-full my-4'>
@@ -159,6 +164,7 @@ const Singup = () => {
               <Button type='submit' className='w-full my-4'>Sign Up</Button>
             )
           }
+
           <span className='text-sm'>Already have an account? <Link to={"/login"} className='text-blue-500 cursor-pointer underline'>Login</Link></span>
         </form>
       </div>
@@ -166,4 +172,4 @@ const Singup = () => {
   )
 }
 
-export default Singup
+export default Signup

@@ -18,7 +18,7 @@ export function ProfilePopover() {
     const { authUser } = useSelector(store => store.auth);
     const logoutHandler = async () => {
         try {
-            const res = await axios.get("https://jobportal-youtube.onrender.com/api/v1/user/logout", { withCredentials: true });
+            const res = await axios.get("https://jobpulse-deploy.onrender.com//api/v1/user/logout", { withCredentials: true });
             
             if (res.data.success) {
                 dispatch(setAuthUser(null));

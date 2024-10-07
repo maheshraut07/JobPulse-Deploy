@@ -50,7 +50,7 @@ export function UpdateProfileDialog({ open, setOpen }) {
 
         try {
             dispatch(setLoading(true));
-            const res = await axios.post("https://jobportal-youtube.onrender.com/api/v1/user/profile/update", formData, {
+            const res = await axios.post("https://jobpulse-deploy.onrender.com//api/v1/user/profile/update", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

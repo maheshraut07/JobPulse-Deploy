@@ -51,8 +51,11 @@ const JobDescription = () => {
   }, [params.id, dispatch, authUser?._id]);
 
   return (
-    <div className='max-w-7xl mx-auto my-10'>
+    <div>
+    <div>
       <Navbar/>
+    </div>
+    <div className='max-w-7xl mx-auto my-10'>
       <div className='flex items-center justify-between'>
         <div>
           <h1 className='font-bold text-xl '>{singleJobById?.title}</h1>
@@ -85,6 +88,7 @@ const JobDescription = () => {
       <div>
         {/* <ApplyJobDialog open={open} setOpen={setOpen} /> */}
       </div>
+    </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import { setSingleJobById } from '@/redux/jobSlice';
 import { useParams } from 'react-router-dom';
+import Navbar from './shared/Navbar';
 
 const JobDescription = () => {
   const { singleJobById } = useSelector(store => store.job);
@@ -51,6 +52,7 @@ const JobDescription = () => {
 
   return (
     <div className='max-w-7xl mx-auto my-10'>
+      <Navbar/>
       <div className='flex items-center justify-between'>
         <div>
           <h1 className='font-bold text-xl '>{singleJobById?.title}</h1>
